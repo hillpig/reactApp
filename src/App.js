@@ -19,6 +19,7 @@ import five from './5.jpg';
 import { makeStyles } from '@material-ui/styles';
 
 import './App.css';
+import { green } from '@material-ui/core/colors';
 
 const title = [
   " 从性格看你适合的大学，性格与学校的相融能提升你的学习质量。但似乎每个人都很清楚自己，但却又是最不了解自己。以致于选择学校和专业上也有很多犹豫。如果你已躺中，做做这个测试，让它帮你理清头绪吧",
@@ -61,21 +62,38 @@ const universities = [
   "宾夕法尼亚大学"
 ]
 
+const result = [
+  {"first" : "对于这样的你，", "second": "会成为你最棒的选择。"},
+  {"first" : "这样充满魅力的你，", "second" : "和你最为相配。"},
+  {"first" : "你是金字塔上端的人才，", "second" : "能够辅助你完成梦想。"},
+  {"first" : "在你身上，充满着无限的可能，", "second" : "是最能帮助你成就未来的选择。"}
+]
+
+const start = "开始"
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    background: '#EEE',
+    padding: 16,
+  },
+
+}));
+
+
+
 function Question1(props) {
-  
+//  const classes = useStyles();
   if (props.question === 1) {
     return (
+      <div>
       <RadioGroup onChange={props.onChange} name="Q1" >
         <p>{title[1]}</p>
-        <FormControlLable value="1" control = {<Radio />} label = {<img src = {oneA} alt = "" width="50%" height=""/>}/>
-        
-        <FormControlLable value="2" control = {<Radio />} label = {<img src = {oneB} alt = "" width="50%" height=""/>}/>
-        {/* <img src = {oneB} alt = "" width="40%" height=""/> */}
-        <FormControlLable value="3" control = {<Radio/> } label = {<img src = {oneC} alt = "" width="50%" height=""/>} />
-        {/* <img src = {oneC} alt = "" width="40%" height=""/> */}
-        <FormControlLable value="4" control = {<Radio/>} label = {<img src = {oneD} alt = "" width="50%" height=""/>} />
-        {/* <img src = {oneD} alt = "" width="40%" height=""/> */}
+        <FormControlLable value="1" control = {<Radio />} label = {<img src = {oneA} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="2" control = {<Radio />} label = {<img src = {oneB} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="3" control = {<Radio />} label = {<img src = {oneC} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="4" control = {<Radio />} label = {<img src = {oneD} alt = "" width="50%" height=""/>} />
       </RadioGroup>
+      </div>
     );
   }
 
@@ -88,13 +106,10 @@ function Question2(props) {
     return (
       <RadioGroup onChange={props.onChange} name="Q2">
         <p>{title[2]}</p>
-        <FormControlLable value="1" control = {<Radio />} label = {<img src = {twoA} alt = "" width="50%" height=""/>}/>
-        
-        <FormControlLable value="2" control = {<Radio />} label = {<img src = {twoB} alt = "" width="50%" height=""/>}/>
-        {/* <img src = {oneB} alt = "" width="40%" height=""/> */}
-        <FormControlLable value="3" control = {<Radio/> } label = {<img src = {twoC} alt = "" width="50%" height=""/>} />
-        {/* <img src = {oneC} alt = "" width="40%" height=""/> */}
-        <FormControlLable value="4" control = {<Radio/>} label = {<img src = {twoD} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="1" control = {<Radio />} label = {<img src = {twoA} alt = "" width="50%" height=""/>} />        
+        <FormControlLable value="2" control = {<Radio />} label = {<img src = {twoB} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="3" control = {<Radio />} label = {<img src = {twoC} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="4" control = {<Radio />} label = {<img src = {twoD} alt = "" width="50%" height=""/>} />
       </RadioGroup>
     );
   }
@@ -108,10 +123,10 @@ function Question3(props) {
     return (
       <RadioGroup onChange={props.onChange} name="Q3" >
         <p>{title[3]}</p>
-        <FormControlLable value="1" control = {<Radio />} label = "Cod"/>
-        <FormControlLable value="2" control = {<Radio />} label = "Octopus"/>
-        <FormControlLable value="3" control = {<Radio/>} label = "Lobster" />
-        <FormControlLable value="4" control = {<Radio/>} label = "Shrimp" />
+        <FormControlLable value="1" control = {<Radio />} label = "Cod" />
+        <FormControlLable value="2" control = {<Radio />} label = "Octopus" />
+        <FormControlLable value="3" control = {<Radio />} label = "Lobster" />
+        <FormControlLable value="4" control = {<Radio />} label = "Shrimp" />
       </RadioGroup>
     );
   }
@@ -125,13 +140,10 @@ function Question4(props) {
     return (
       <RadioGroup onChange={props.onChange} name="Q4" >
         <p>{title[4]}</p>
-        <FormControlLable value="1" control = {<Radio />} label = {<img src = {fourA} alt = "" width="50%" height=""/>}/>
-        
-        <FormControlLable value="2" control = {<Radio />} label = {<img src = {fourB} alt = "" width="50%" height=""/>}/>
-        {/* <img src = {oneB} alt = "" width="40%" height=""/> */}
-        <FormControlLable value="3" control = {<Radio/> } label = {<img src = {fourC} alt = "" width="50%" height=""/>} />
-        {/* <img src = {oneC} alt = "" width="40%" height=""/> */}
-        <FormControlLable value="4" control = {<Radio/>} label = {<img src = {fourD} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="1" control = {<Radio />} label = {<img src = {fourA} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="2" control = {<Radio />} label = {<img src = {fourB} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="3" control = {<Radio />} label = {<img src = {fourC} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="4" control = {<Radio />} label = {<img src = {fourD} alt = "" width="50%" height=""/>} />
       </RadioGroup>
     );
   }
@@ -140,16 +152,15 @@ function Question4(props) {
 }
 
 function Question5(props) {
-
   if (props.question === 5) {
     return (
       <RadioGroup onChange={props.onChange} name="Q5" >
         <img src = {five} alt = "" width = "50%" />
         <p>{title[5]}</p>
-        <FormControlLable value="1" control = {<Radio />} label = {anwser[0]}/>
-        <FormControlLable value="2" control = {<Radio />} label = {anwser[1]}/>
-        <FormControlLable value="3" control = {<Radio />} label = {anwser[2]}/>
-        <FormControlLable value="4" control = {<Radio />} label = {anwser[3]}/>
+        <FormControlLable value="1" control = {<Radio />} label = {anwser[0]} />
+        <FormControlLable value="2" control = {<Radio />} label = {anwser[1]} />
+        <FormControlLable value="3" control = {<Radio />} label = {anwser[2]} />
+        <FormControlLable value="4" control = {<Radio />} label = {anwser[3]} />
       </RadioGroup>
     );
   }
@@ -199,11 +210,11 @@ class App extends React.Component {
 
       if (this.state.page === 0) {
         return (
-          <div>
-          <p>{title[0]}</p>
-          <button onClick={this.handleClick}>
-            {"开始"}
-          </button>
+          <div style={{backgroundColor: 'green', padding: '20px', margin: 'auto'}}>
+            <p>{title[0]}</p>
+            <button onClick={this.handleClick} style={{margin: 'auto'}}>
+              {start}
+            </button>
           </div>
           
         );
@@ -211,52 +222,52 @@ class App extends React.Component {
 
       return (
         <div>
-          <Question1 question={this.state.page} onChange={this.handleChange}/>
-          <Question2 question={this.state.page} onChange={this.handleChange}/>
-          <Question3 question={this.state.page} onChange={this.handleChange}/>
-          <Question4 question={this.state.page} onChange={this.handleChange}/>
-          <Question5 question={this.state.page} onChange={this.handleChange}/>
+          <Question1 question={this.state.page} onChange={this.handleChange} />
+          <Question2 question={this.state.page} onChange={this.handleChange} />
+          <Question3 question={this.state.page} onChange={this.handleChange} />
+          <Question4 question={this.state.page} onChange={this.handleChange} />
+          <Question5 question={this.state.page} onChange={this.handleChange} />
 
         </div>
       );
     }
 
-    if (this.state.result > 16) {
-      return (
-        <div>
-          <p>{analysis[3]}</p>
-          <p>{"在你身上，充满着无限的可能，"} {universities[this.state.result-5]}{"是最能帮助你成就未来的选择。"}</p>
-        </div>
-      );
-    }
+    let division = parseInt((this.state.result - 1)/4) - 1;
 
-    if (this.state.result > 12) {
-      return (
-        <div>
-          <p>{analysis[2]}</p>
-          <p>{"你是金字塔上端的人才，"} {universities[this.state.result-5]}{"能够辅助你完成梦想。"}</p>
-        </div>
-      );
-    }
-
-    if (this.state.result > 8) {
-      return (
-        <div>
-        <p>{analysis[2]}</p>
-        <p>{"这样充满魅力的你，"} {universities[this.state.result-5]}{"和你最为相配。"}</p>
-        </div>
-      );
-    }
+//    if (this.state.result > 16) {
     return (
-      <div>
-        {/* <Acculator acculator = {this.state.result} />       */}
-        <p>{analysis[0]}</p>  
-        <p>{"对于这样的你，"} {universities[this.state.result-5]}{"会成为你最棒的选择。 "}</p>
-      </div>
-    );
+       <div >
+         <p>{analysis[division]}</p>
+         <p>{result[division].first}{universities[this.state.result-5]}{result[division].second}</p>
+       </div>
+      );
+//    }
+
+    // if (this.state.result > 12) {
+    //   return (
+    //     <div>
+    //       <p>{analysis[2]}</p>
+    //       <p>{"你是金字塔上端的人才，"}{universities[this.state.result-5]}{"能够辅助你完成梦想。"}</p>
+    //     </div>
+    //   );
+    // }
+
+    // if (this.state.result > 8) {
+    //   return (
+    //     <div>
+    //     <p>{analysis[2]}</p>
+    //     <p>{"这样充满魅力的你，"}{universities[this.state.result-5]}{"和你最为相配。"}</p>
+    //     </div>
+    //   );
+    // }
+    // return (
+    //   <div>
+    //     {/* <Acculator acculator = {this.state.result} />       */}
+    //     <p>{analysis[0]}</p>  
+    //     <p>{"对于这样的你，"}{universities[this.state.result-5]}{"会成为你最棒的选择。 "}</p>
+    //   </div>
+    // );
   }
 }
-
-
 
 export default App;
