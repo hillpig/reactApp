@@ -11,6 +11,10 @@ import twoA from './2a.jpg';
 import twoB from './2b.jpg';
 import twoC from './2c.jpg';
 import twoD from './2d.jpg';
+import threeA from './3a.jpg';
+import threeB from './3b.jpg'
+import threeC from './3c.jpg'
+import threeD from './3d.jpg'
 import fourA from './4a.jpg';
 import fourB from './4b.jpg';
 import fourC from './4c.jpg';
@@ -123,10 +127,10 @@ function Question3(props) {
     return (
       <RadioGroup onChange={props.onChange} name="Q3" >
         <p>{title[3]}</p>
-        <FormControlLable value="1" control = {<Radio />} label = "Cod" />
-        <FormControlLable value="2" control = {<Radio />} label = "Octopus" />
-        <FormControlLable value="3" control = {<Radio />} label = "Lobster" />
-        <FormControlLable value="4" control = {<Radio />} label = "Shrimp" />
+        <FormControlLable value="1" control = {<Radio />} label = {<img src = {threeA} alt = "" width="50%" height=""/>} />        
+        <FormControlLable value="2" control = {<Radio />} label = {<img src = {threeB} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="3" control = {<Radio />} label = {<img src = {threeC} alt = "" width="50%" height=""/>} />
+        <FormControlLable value="4" control = {<Radio />} label = {<img src = {threeD} alt = "" width="50%" height=""/>} />
       </RadioGroup>
     );
   }
@@ -210,7 +214,7 @@ class App extends React.Component {
 
       if (this.state.page === 0) {
         return (
-          <div style={{backgroundColor: 'green', padding: '20px', margin: 'auto'}}>
+          <div >
             <p>{title[0]}</p>
             <button onClick={this.handleClick} style={{margin: 'auto'}}>
               {start}
